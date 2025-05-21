@@ -7,7 +7,7 @@ import { connect } from "amqplib";
  * @param {Object} message 
  */
 async function sendUpdates(channel, message) {
-    const exchangeName = "scoreboard";
+    const exchangeName = "scoreboard-fanout";
     const exchangeType = "fanout";
     
     await channel.assertExchange(exchangeName, exchangeType, {durable: false})

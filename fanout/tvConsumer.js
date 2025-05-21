@@ -6,11 +6,14 @@ import { connect } from "amqplib";
  * @param {import("amqplib").Channel} channel
  */
 async function receiveUpdates(channel) {
-  const queueName = "score_updates_queue";
+    const exchangeName = "scoreboard-fanout";
+    const exchangeType = "fanout";
 
-  await channel.assertQueue(queueName, { durable: false });
+    await channel.assertExchange(exchangeName, exchangeType, {durable: false})
+    const queue = await channel.assertQueue("", {exclusive: true})
+    await channel.bindQueue(queue.queue, exchangeName, "")
 
-  channel.consume(queueName, (message) => {
+  channel.consume(queue.queue, (message) => {
     console.log("TV score updates ", JSON.parse(message.content));
     channel.ack(message);
   });
