@@ -38,3 +38,4 @@ I have added examples for the following types.
 - Fanout
 - Header
 - Topic
+- Streams
