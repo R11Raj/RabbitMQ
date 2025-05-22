@@ -1,0 +1,2 @@
+docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 -e RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS="-rabbitmq_stream advertised_host localhost" rabbitmq:management
+docker exec rabbitmq1 rabbitmq-plugins enable rabbitmq_stream
