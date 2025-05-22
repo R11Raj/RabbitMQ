@@ -20,7 +20,7 @@ docker pull rabbitmq:management
 ```
 docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
 ```
-> RabbitMQ by default runs on port 5672 and its dashboard runs on 15672.
+> RabbitMQ by default runs on port 5672 and its Dashboard runs on 15672.
 
 - Verify if the docker is running correctly by visiting the site `http://localhost:15672/#/`.
   - The credentials for local development is `guest` for both username and password.
@@ -31,10 +31,10 @@ You can checkout the RabbitMQ Dashboard at `http://localhost:15672/#/`
 ![](./assets/image.png)
 
 ## Exchange Types
-### Direct
+Detailed information about the various Exchange types can be found [here](https://www.rabbitmq.com/docs/exchanges).
 
-### Fanout
-
-### Header
-
-### Topic
+I have added examples for the following types.
+- Direct
+- Fanout
+- Header
+- Topic
